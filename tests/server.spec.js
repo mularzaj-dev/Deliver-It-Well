@@ -36,5 +36,14 @@ describe('server/app.js', function() {
       expect(JSON.stringify(res.text)).to.contain('Hello World');
       done();
     });
-  });
+  }); 
+  it('page says CircleCI Works', (done) => {
+  chai.request(server)
+    .get('/')
+    .end((err, res) => {
+      expect(err).not.exist;
+      expect(JSON.stringify(res.text)).to.contain('CircleCI Works');
+      done();
+    });
+});
 })
